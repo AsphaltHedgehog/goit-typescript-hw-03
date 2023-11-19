@@ -8,6 +8,20 @@
 */
 
 // реалізація класу Wizard
+
+interface ICharacter {
+  name: string;
+  level: number;
+
+  introduce(phrase: string): void;
+  
+  levelUp():void;
+}
+
+interface ISpellCaster {
+  castSpell(phrase:string): void;
+}
+
 class Wizard implements ICharacter, ISpellCaster {
   constructor(public name: string, public level: number) {
     if (this.level < 1) {
@@ -19,8 +33,8 @@ class Wizard implements ICharacter, ISpellCaster {
     console.log(phrase + ', ' + this.name);
   }
 
-  castSpell(): void {
-    console.log('Casting a spell, behold my power!');
+  castSpell(phrase:string): void {
+    console.log(`Casting a ${phrase}, behold my power!`);
   }
 
   levelUp(): void {
@@ -33,7 +47,9 @@ class Wizard implements ICharacter, ISpellCaster {
 const wizard = new Wizard('Merlin', 15);
 
 wizard.introduce('I am the mighty wizard');
-wizard.castSpell();
+wizard.castSpell('FareStorm');
+wizard.castSpell('IceStorm');
+wizard.castSpell('StormShadow');
 wizard.levelUp();  // Level up! New level is 16
 
 export {};
