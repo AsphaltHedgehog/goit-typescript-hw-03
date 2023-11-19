@@ -10,9 +10,6 @@ class Student {
     public age: number,
     public grade: string
   ) {
-    this.name = name;
-    this.age = age;
-    this.grade = grade;
   }
 }
 
